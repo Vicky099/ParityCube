@@ -12,7 +12,12 @@
           <li><a href="#">Settings</a></li>
           <li class="divider"></li>
           <li>
-            <%= link_to '<i class="material-icons" style="font-size: 1rem">settings_power</i> Logout'.html_safe, destroy_user_session_path, method: :delete%>
+            <%if user_signed_in? %>          
+            
+              <%= link_to '<i class="material-icons" style="font-size: 1rem">settings_power</i> Logout'.html_safe, destroy_user_session_path, method: :delete%>
+            <%else%>
+              <%= link_to '<i class="" style="font-size: 1rem"></i> Login'.html_safe, new_user_session_path, method: :delete%>
+            <%end%>
           </li>
         </ul>
       </li>
