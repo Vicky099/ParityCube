@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CuewordsAdmin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="login-background">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
+  </body>
+<script type="text/javascript">
+$(document).on('turbolinks:load', function() {
+  $(".dropdown-button").dropdown();
+  $('.tooltipped').tooltip({delay: 50});
+  var flash = <%=raw @flash %>;
+  alert(flash);
+});
+</script>
+</html>
