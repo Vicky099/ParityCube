@@ -2,5 +2,5 @@ development:
   adapter: postgresql
   host: localhost
   database: paritycube
-  username: pguser
-  password: pguser
+  username: paritycube
+  password: paritycube
