@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #extra gems 
 gem 'devise'
 gem 'pg'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :development, :test do
   gem 'pry'

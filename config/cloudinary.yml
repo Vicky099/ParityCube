@@ -1,0 +1,18 @@
+development:
+  cloud_name: paritycube
+  api_key: '143187188965959'
+  api_secret: D5wrfsFnU2yjDzLzXfp84BKaoeI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: paritycube
+  api_key: '143187188965959'
+  api_secret: D5wrfsFnU2yjDzLzXfp84BKaoeI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: paritycube
+  api_key: '143187188965959'
+  api_secret: D5wrfsFnU2yjDzLzXfp84BKaoeI
+  enhance_image_tag: true
+  static_image_support: false

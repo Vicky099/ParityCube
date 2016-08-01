@@ -2,7 +2,13 @@
   <div class="footer-copyright">
     <div class="container">
     © 2016 Copyright ParityCube Private Limited.
-    </div>
+    <%if !user_signed_in? %>
+    <ul  class="right hide-on-med-and-down">
+      <li>
+        <%= link_to '<i class="" style="font-size: 1rem"></i> Login'.html_safe, new_user_session_path%>
+      </li>
+    </ul>
+    <%end%>
   </div>
 </footer>
 <script type="text/javascript">

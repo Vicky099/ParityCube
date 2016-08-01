@@ -1,29 +1,26 @@
 <nav class="blue">
   <div class="nav-wrapper">
     <%= link_to "#", class: 'brand-logo' do %>
-      <%= image_tag('logo.png', width: 136, height: 64, alt: 'a face that is unnervingly happy') %>
+      <%= image_tag('logo.png', width: 136, height: 64, alt: 'ParityCube') %>
     <%end%>
+    <%if user_signed_in? %>
     <ul  class="right hide-on-med-and-down">
-      <li> <%=link_to "Keywords", "#", onclick: "Materialize.toast('Loading ...', 4000)" %> </li>
-      <li>
       <a class="dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1">Profile<i class="material-icons right">settings</i></a>
         <!-- Dropdown Structure -->
         <ul id='dropdown1' class='dropdown-content'>
           <li><a href="#">Settings</a></li>
           <li class="divider"></li>
-          <li>
-            <%if user_signed_in? %>          
+          <li>      
               <%= link_to '<i class="material-icons" style="font-size: 1rem">settings_power</i> Logout'.html_safe, destroy_user_session_path, method: :delete%>
-            <%else%>
-              <%= link_to '<i class="" style="font-size: 1rem"></i> Login'.html_safe, new_user_session_path%>
-            <%end%>
           </li>
           <li class="divider"></li>
-          <li>
-            <%= link_to '<i class="" style="font-size: 1rem"></i> Sign Up'.html_safe, new_registration_path(resource_name)%>
-          </li>
+
         </ul>
       </li>
     </ul>
+    <%else%>
+    <ul  class="right hide-on-med-and-down">
+    </ul>
+    <%end%>
   </div>
 </nav>
