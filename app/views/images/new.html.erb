@@ -1,0 +1,35 @@
+<section>
+  <div>
+    <div>
+      <h4>
+        Upload Images
+      </h4>
+    </div>
+    <div>
+      <%= form_for @image, :url => images_path, :method => :post, :html=>{:id => "image_form"} do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div>
+          <div>
+            <%= f.label :tag_line%>
+          </div>
+          <div>
+            <%= f.text_field :tag_line%>
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= f.label :photo%>
+          </div>
+          <div>
+            <%= f.file_field :photo%>
+          </div>
+        </div>
+        <div>
+          <div>
+            <%= f.submit "Upload image"%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,27 @@
-index.html.erb
+<h5>Photos</h5>
+<section>
+  <div>
+    <div>
+      <% @all_images.each do |image| %>
+        <div>
+          <div>
+            <b>
+              <%= image.user.first_name %>
+            </b>
+            <%= image_tag image.photo.url, :style => "width:150px;height:130px" %>
+            <b>
+              <%= image.tag_line %>
+            </b>
+            <b>
+              <%= link_to "Like(#{image.like})", like_image_path(image.id), :remote => true%>
+            </b>
+            <b>
+              <%= link_to "Favourite(#{image.favourite})", favourite_image_path(image.id), :remote => true%>
+            </b>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+

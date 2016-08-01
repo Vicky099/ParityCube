@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+  resources :images do
+    member do
+      get :like
+      get :favourite
+    end
+  end
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
