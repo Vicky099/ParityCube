@@ -19,18 +19,31 @@ class ImagesController < ApplicationController
     end
   end
 
-  def like
-    #remain if  c user need to like one pic ones
-    #owner of pic not like to his photo
-    #ajaxified change vote count 
+  def like 
     image = Image.find(params[:id])
     like_count = image.like + 1
     if image.update_attributes(like: like_count)
+      image.like_activities.create!(image_id: image.id, like_user_id: current_user.id)
       @status = "success"
-      @like_count = image.like
+      @like = image
     else
-      @status = "success"
+      @status = "fail"
       flash[:alert] = "Please vote it again."
+    end
+  end
+
+  def dislike
+    image = Image.find(params[:id])
+    activity = image.like_activities.where("like_user_id =?", current_user.id).first
+    like_count = image.like - 1
+    if image.update_attributes(like: like_count)
+      activity.destroy
+      @status = "success"
+      @image = image
+    else
+      @status = "fail"
+      @image = image
+      flash[:alert] = "Please dislike it again."
     end
   end
 
@@ -38,12 +51,18 @@ class ImagesController < ApplicationController
     image = Image.find(params[:id])
     favourite_count = image.favourite + 1
     if image.update_attributes(favourite: favourite_count)
+      image.like_activities.create!(image_id: image.id, favourite_user_id: current_user.id)
       @status = "success"
       @favourite_count = image.favourite
     else
       @status = "success"
       flash[:alert] = "Please vote it again."
     end
+  end
+
+  def dashboard
+    @top_like_images = Image.all.order(like: :desc).first(3)
+    @top_fav_images = Image.all.order(favourite: :desc).first(3)
   end
 
   private

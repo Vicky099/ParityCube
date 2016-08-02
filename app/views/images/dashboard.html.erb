@@ -1,0 +1,23 @@
+<h4>Results</h4>
+<h5>Selfie with friend contest</h5>
+
+<p>
+  First Top three like images
+</p>
+<% @top_like_images.each do |image|%>
+  <b>
+    Tag Line: 
+    <%= image.tag_line%>
+  </b>
+  <b>
+    Total Like:
+    <%= image.like%>
+  </b>
+  <b>
+    <%= image_tag image.photo.url, :style => "width:150px;height:130px" %>
+  </b>
+<%end%>
+
+<p>
+  First Top three favourite images
+</p>

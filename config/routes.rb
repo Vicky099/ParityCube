@@ -9,10 +9,15 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+
   resources :images do
     member do
       get :like
+      get :dislike
       get :favourite
+    end
+    collection do
+      get :dashboard
     end
   end
    
