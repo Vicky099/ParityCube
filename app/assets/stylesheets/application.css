@@ -36,3 +36,12 @@ nav .nav-wrapper {
 .text-right{
   text-align: right;
 }
+.sign_in_card{
+  margin-top: 30px;
+}
+.border-bottom{
+  border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+}
+.pad-all-20{
+  padding: 20px;
+}
