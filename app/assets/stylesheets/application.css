@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.bg-white{
+  background-color: #fff;
+}
+nav .nav-wrapper {
+  padding: 5px 0px;
+}
+.lowercase{
+  text-transform: lowercase !important;
+}
+.text-right{
+  text-align: right;
+}
