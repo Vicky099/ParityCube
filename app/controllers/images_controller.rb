@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
 
   def create
     user = User.find(params[:image][:user_id])
-    if user.images.count > 1
+    if user.images.count < 2
       image = Image.new(image_params)
       if image.save!
         redirect_to root_path
@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
         render 'new'
       end
     else
-      flash[:notice] = "You upload only one image."
+      flash[:notice] = "You have already uploaded one!!"
       redirect_to root_path
     end
   end
