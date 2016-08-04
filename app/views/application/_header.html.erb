@@ -1,12 +1,16 @@
 <nav class="bg-white">
   <div class="nav-wrapper">
-    <div class="container">
+    <div class="main-logo">  
       <%= link_to root_path, class: 'brand-logo' do %>
         <%= image_tag('logo.png', alt: 'ParityCube') %>
       <%end%>
-      <%if user_signed_in? %>
-      <ul  class="right hide-on-med-and-down">
-        <a class="dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1">Profile<i class="material-icons right">settings</i></a>
+    </div>
+    <%if user_signed_in? %>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a class="dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1"><i class="material-icons center">settings</i></a>
+        </li>
+        <li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
             <li>
@@ -29,11 +33,10 @@
           <%=link_to "Upload Photos", new_image_path%>
         </li>  
       </ul>
-      <%else%>
-      <ul  class="right hide-on-med-and-down">
-      
-      </ul>
-      <%end%>
-    </div>
+    <% else %>
+      <div class=" right">
+        <a class="waves-effect waves-light btn blue lighten-3">SIGNUP</a>
+      </div>
+    <%end%>
   </div>
 </nav>

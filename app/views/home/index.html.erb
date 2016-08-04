@@ -1,36 +1,44 @@
-<% @all_images.each do |image| %>
-  <div class="row">
+ <div class="row gallery">
+  <% @all_images.each do |image| %>  
     <div class="col s12 m3">
-      <div class="card small">
-        <div class="card-image waves-effect waves-block waves-light">
-          <%= image_tag image.photo.url, :style => "width:302px;height:180px", :class => "activator" %>
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= image.tag_line%><i class="material-icons right">more_vert</i></span>
-          <%if user_signed_in?%>
-            <p>
-              <%unless user_already_like_image(image).present?%>
-                <%= link_to "Like", like_image_path(image.id), :id=>"like_btn_#{image.id}", :remote => true%>
-              <%else%>
-                You Liked.
-              <%end%>
-            </p>
-            <p>
-              <%unless user_already_fav_image(image).present?%>
-                <%= link_to "Favourite", favourite_image_path(image.id), :id=>"fav_btn_#{image.id}" ,:remote => true%>
-              <%else%>
-                Your Favourite.
-              <%end%>
-            </p>
-          <%end%>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Image Owner Info<i class="material-icons right">close</i></span>
-          <p>
-            Name: <%=image.user.first_name%><%=image.user.last_name%>
-          </p>
+      <div class="card pad-all-10">
+        <div class="card-image image01">
+          <a href="#image_modal" class="material-icons visibility-icon">visibility</a>
+          <%= image_tag image.photo.url, :class => "user_image" %>
+          <div class="ovrly"></div>          
+          <div class="description">
+            <div class="font18 gb10 border-bottom pad-bottom5"><%=image.user.first_name%><%=image.user.last_name%></div>
+            <div class="gb10">
+              <%= image.tag_line%>
+            </div>
+            <div class="clearfix">
+              <%if user_signed_in?%>
+                  <%unless user_already_like_image(image).present?%>
+                    <i class="material-icons margin-right5 font15" title="Like">thumb_up</i>
+                  <%else%>
+                    <i class="material-icons margin-right5 blue-text font15" title="Like">thumb_up</i>
+                  <% end %>
+                  <%unless user_already_fav_image(image).present?%>
+                    <i class="material-icons blue-text font15" title="Favourite">star</i>
+                  <%else%>
+                    <i class="material-icons font15" title="Favourite">star</i>
+                  <% end %>
+                
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  <%end%> 
+</div>
+
+<div id="image_modal" class="modal">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
   </div>
-<%end%>          
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>

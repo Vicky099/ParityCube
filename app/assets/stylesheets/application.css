@@ -18,6 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
 }
 
 main {
@@ -28,7 +29,10 @@ main {
   background-color: #fff;
 }
 nav .nav-wrapper {
-  padding: 5px 0px;
+  padding: 0px 20px;
+}
+nav .main-logo  img{
+  margin: 5px 0px;
 }
 .lowercase{
   text-transform: lowercase !important;
@@ -44,4 +48,114 @@ nav .nav-wrapper {
 }
 .pad-all-20{
   padding: 20px;
+}
+.pad-all-10{
+  padding: 10px;
+}
+nav ul a, .dropdown-content li>a, .dropdown-content li>span{
+  color: #aaa;
+}
+.gb10{
+  margin-bottom: 10px;
+}
+.font15{
+  font-size: 15px;
+}
+.font18{
+  font-size: 18px;
+}
+.margin-right5{
+  margin-right: 5px;
+}
+.pad-bottom5{
+  padding-bottom: 5px;
+}
+.image01 {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+.image01 img {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    position: relative;
+    left: 0;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    -o-transition: -o-transform 0.3s;
+    transition: transform 0.3s;
+}
+.image01 .ovrly {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.image01:hover img{
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+.image01:hover .ovrly {
+    opacity: 1;
+}
+.image01:hover .buttons .material-icons{
+    opacity: 1;
+}
+.image01:hover .description{
+  opacity: 1;
+}
+.image01:hover .visibility-icon{
+  opacity: 1;
+}
+.image01 .description{
+  position: absolute;
+  opacity: .0;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #fff;
+  width: 100%;
+  background-color: rgba(0,0,0,.5);
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.image01 .visibility-icon{
+  color: #fff;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: .0;
+  z-index: 9;
+}
+.image01 .material-icons{
+  cursor: pointer;
 }

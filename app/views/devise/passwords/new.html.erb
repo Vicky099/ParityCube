@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col s10 m5 offset-m4">
+  <div class="col s12 m4 offset-m4">
     <div class="card horizontal z-depth-2 sign_in_card">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>
@@ -14,9 +14,6 @@
             <div class="card-action row">
               <div class="col s12 m5">
                 <%= f.submit "Reset password", class: "btn waves-effect waves-light blue" %>
-              </div>
-              <div class="col s12 m6 text-right">
-                <%= render "devise/shared/links" %>
               </div>
             </div>
           </div>
