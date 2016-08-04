@@ -1,25 +1,20 @@
-<h5>Photos</h5>
-<section>
-  <div>
-    <div>
-      <% @all_images.each do |image| %>
-        <div>
-          <div>
-            <b>
-              <%= image.user.first_name %>
-            </b>
-            <%= image_tag image.photo.url, :style => "width:150px;height:130px" %>
-            <b>
-              <%= image.tag_line %>
-            </b>
-            <%if current_user.present? %>
-            <b>
+<% @all_images.each do |image| %>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="card small">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag image.photo.url, :style => "width:302px;height:180px", :class => "activator" %>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= image.tag_line%><i class="material-icons right">more_vert</i></span>
+          <%if user_signed_in?%>
+            <p>
               <%unless user_already_like_image(image).present?%>
                 <%= link_to "Like", like_image_path(image.id), :id=>"like_btn_#{image.id}", :remote => true%>
               <%else%>
                 You Liked.
               <%end%>
-            </b>
+            </p>
             <b>
               <%unless user_already_fav_image(image).present?%>
                 <%= link_to "Favourite", favourite_image_path(image.id), :id=>"fav_btn_#{image.id}" ,:remote => true%>
@@ -27,11 +22,15 @@
                 You Liked.
               <%end%>
             </b>
-            <%end%>
-          </div>
+          <%end%>
         </div>
-      <% end %>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Image Owner Info<i class="material-icons right">close</i></span>
+          <p>
+            Name: <%=image.user.first_name%><%=image.user.last_name%>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-</section>
-
+<%end%>          
