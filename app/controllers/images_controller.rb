@@ -32,21 +32,6 @@ class ImagesController < ApplicationController
     end
   end
 
-  def dislike
-    image = Image.find(params[:id])
-    activity = image.like_activities.where("like_user_id =?", current_user.id).first
-    like_count = image.like - 1
-    if image.update_attributes(like: like_count)
-      activity.destroy
-      @status = "success"
-      @image = image
-    else
-      @status = "fail"
-      @image = image
-      flash[:alert] = "Please dislike it again."
-    end
-  end
-
   def favourite
     image = Image.find(params[:id])
     favourite_count = image.favourite + 1
@@ -60,7 +45,7 @@ class ImagesController < ApplicationController
     end
   end
 
-  def dashboard
+  def results
     @top_like_images = Image.all.order(like: :desc).first(3)
     @top_fav_images = Image.all.order(favourite: :desc).first(3)
   end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   #devise_for :users
   #root to: "home#index"
-  devise_for :users
+  devise_for :users, :skip => [:registrations]
   devise_scope :user do
     get '/users/signin' => "devise/sessions#new"
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   resources :images do
     member do
       get :like
-      get :dislike
       get :favourite
     end
     collection do
-      get :dashboard
+      get :results
     end
   end
    

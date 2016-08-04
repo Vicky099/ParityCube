@@ -17,11 +17,15 @@
               <%unless user_already_like_image(image).present?%>
                 <%= link_to "Like", like_image_path(image.id), :id=>"like_btn_#{image.id}", :remote => true%>
               <%else%>
-                <%= link_to "DisLike", dislike_image_path(image.id), :remote => true%>
+                You Liked.
               <%end%>
             </b>
             <b>
-              <%= link_to "Favourite", favourite_image_path(image.id), :remote => true%>
+              <%unless user_already_fav_image(image).present?%>
+                <%= link_to "Favourite", favourite_image_path(image.id), :id=>"fav_btn_#{image.id}" ,:remote => true%>
+              <%else%>
+                You Liked.
+              <%end%>
             </b>
             <%end%>
           </div>

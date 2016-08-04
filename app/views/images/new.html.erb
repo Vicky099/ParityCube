@@ -1,35 +1,32 @@
-<section>
-  <div>
-    <div>
-      <h4>
-        Upload Images
-      </h4>
-    </div>
-    <div>
+<div class="row">
+  <div class="col s12 m4 offset-m4">
+    <div class="card horizontal z-depth-2 sign_in_card">
       <%= form_for @image, :url => images_path, :method => :post, :html=>{:id => "image_form"} do |f| %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
-        <div>
-          <div>
-            <%= f.label :tag_line%>
-          </div>
-          <div>
-            <%= f.text_field :tag_line%>
-          </div>
-        </div>
-        <div>
-          <div>
-            <%= f.label :photo%>
-          </div>
-          <div>
-            <%= f.file_field :photo%>
-          </div>
-        </div>
-        <div>
-          <div>
-            <%= f.submit "Upload image"%>
+        <div class="card-stacked">  
+          <div class="card-title border-bottom pad-all-20">Upload Image</div>
+            <div class="card-content">
+              <div class="field">
+                <%= f.label :tag_line%>
+              </div>
+              <div class="field">
+                <%= f.text_field :tag_line%>
+              </div>           
+              <div class="field">
+                <%= f.label :photo%>
+              </div>
+              <div class="field">
+                <%= f.file_field :photo%>
+              </div>
+            </div>
+            <div class="card-action row">
+              <div class="col s12 m6">
+                <%= f.submit "Upload image", class: "btn waves-effect waves-light blue"%>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-</section>
+</div>

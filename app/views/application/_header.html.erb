@@ -9,7 +9,13 @@
         <a class="dropdown-button" href="#" data-beloworigin="true" data-activates="dropdown1">Profile<i class="material-icons right">settings</i></a>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#">Settings</a></li>
+            <li>
+              <%= link_to 'Settings', "#" %>
+            </li>
+            <li class="divider"></li>
+            <li>      
+                <%= link_to 'Results', results_images_path%>
+            </li>
             <li class="divider"></li>
             <li>      
                 <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
