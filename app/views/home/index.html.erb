@@ -15,13 +15,13 @@
                 You Liked.
               <%end%>
             </p>
-            <b>
+            <p>
               <%unless user_already_fav_image(image).present?%>
                 <%= link_to "Favourite", favourite_image_path(image.id), :id=>"fav_btn_#{image.id}" ,:remote => true%>
               <%else%>
-                You Liked.
+                Your Favourite.
               <%end%>
-            </b>
+            </p>
           <%end%>
         </div>
         <div class="card-reveal">
