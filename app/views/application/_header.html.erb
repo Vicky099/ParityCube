@@ -13,10 +13,6 @@
         <li>
           <!-- Dropdown Structure -->
           <ul id='dropdown1' class='dropdown-content'>
-            <li>
-              <%= link_to 'Settings', "#" %>
-            </li>
-            <li class="divider"></li>
             <li>      
                 <%= link_to 'Results', results_images_path%>
             </li>
@@ -35,7 +31,7 @@
       </ul>
     <% else %>
       <div class=" right">
-        <a class="waves-effect waves-light btn blue lighten-3">SIGNUP</a>
+        <%= link_to 'LOGIN', new_user_session_path, :class => "waves-effect waves-light btn blue lighten-3"%>
       </div>
     <%end%>
   </div>

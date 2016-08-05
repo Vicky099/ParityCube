@@ -25,10 +25,13 @@ class ImagesController < ApplicationController
     if image.update_attributes(like: like_count)
       image.like_activities.create!(image_id: image.id, like_user_id: current_user.id)
       @status = "success"
-      @like = image
+      @image = image
+      redirect_to root_path
     else
       @status = "fail"
+      @image = image
       flash[:alert] = "Please vote it again."
+      redirect_to root_path
     end
   end
 
@@ -38,10 +41,13 @@ class ImagesController < ApplicationController
     if image.update_attributes(favourite: favourite_count)
       image.like_activities.create!(image_id: image.id, favourite_user_id: current_user.id)
       @status = "success"
-      @favourite_count = image.favourite
+      @image = image
+      redirect_to root_path
     else
       @status = "success"
+      @image = image
       flash[:alert] = "Please vote it again."
+      redirect_to root_path
     end
   end
 

@@ -13,17 +13,22 @@
             </div>
             <div class="clearfix">
               <%if user_signed_in?%>
+                <% unless image.user.id == current_user.id%>  
                   <%unless user_already_like_image(image).present?%>
-                    <i class="material-icons margin-right5 font15" title="Like">thumb_up</i>
+                    <%= link_to like_image_path(image) do%>
+                      <i class="material-icons margin-right5 white-text font15" title="Like">thumb_up</i>
+                    <%end%>
                   <%else%>
-                    <i class="material-icons margin-right5 blue-text font15" title="Like">thumb_up</i>
+                    <i class="material-icons margin-right5 blue-text font15" title="You Liked it.">thumb_up</i>
                   <% end %>
                   <%unless user_already_fav_image(image).present?%>
-                    <i class="material-icons blue-text font15" title="Favourite">star</i>
+                    <%= link_to favourite_image_path(image) do%>
+                      <i class="material-icons white-text font15" title="Favourite">star</i>
+                    <%end%>
                   <%else%>
-                    <i class="material-icons font15" title="Favourite">star</i>
+                    <i class="material-icons blue-text font15" title="Your Favourite.">star</i>
                   <% end %>
-                
+                <%end%>
               <% end %>
             </div>
           </div>

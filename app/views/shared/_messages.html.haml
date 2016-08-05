@@ -1,0 +1,8 @@
+- flash.each do |type, message|
+  - if type == "notice"
+    - type = "success"
+  - elsif type == "error"
+    - type == "alert" 
+  %div{:class => "alert alert-#{type} alert-dismissable"}
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+    #{message}

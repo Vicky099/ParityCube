@@ -7,23 +7,27 @@
           <div class="card-title border-bottom pad-all-20">Sign up</div>
             <div class="card-content">
               <div class="field">
+                <%= f.label :nick_name %><br />
+                <%= f.text_field :nick_name, autofocus: true, required: true %>
+              </div>
+              <div class="field">
                 <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true %>
+                <%= f.email_field :email, autofocus: true, required: true %>
               </div>
               <div class="field">
                 <%= f.label :password %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %><br />
-                <%= f.password_field :password, autocomplete: "off" %>
+                <%= f.password_field :password, autocomplete: "off", required: true %>
               </div>
               <div class="field">
                 <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", required: true %>
               </div>
               <div class="card-action row">
                 <div class="col s12 m5">
-                  <%= f.submit "Sign up", class: "btn waves-effect waves-light blue"%>
+                  <%= f.submit "Sign up", class: "btn waves-effect waves-light blue", data: { disable_with: "Processing..." }%>
                 </div>
                 <div class="col s12 m6 text-right">
                   <%= link_to "Login", new_user_session_path%>
