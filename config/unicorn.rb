@@ -11,7 +11,7 @@ timeout 30
 working_directory app_dir
 
 # Set up socket location
-listen "#{shared_dir}/tmp/parity_cube.sock", :backlog => 64
+listen "#{shared_dir}/tmp/unicorn.sock", :backlog => 64
 
 # Loging
 stderr_path "#{shared_dir}/log/unicorn.stderr.log"

@@ -23,6 +23,7 @@ set :branch, 'master'
 set :forward_agent, true
 set :ssh_options, '-A'
 set :term_mode, nil
+set :unicorn_pid, "#{deploy_to}/shared/tmp/pids/unicorn.pid"
 
 set :shared_paths, ['config/database.yml', 'log', 'config/secrets.yml', 'config/cloudinary.yml']
 
