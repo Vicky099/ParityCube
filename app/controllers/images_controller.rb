@@ -20,33 +20,46 @@ class ImagesController < ApplicationController
   end
 
   def like 
-    image = Image.find(params[:id])
-    like_count = image.like + 1
-    if image.update_attributes(like: like_count)
-      image.like_activities.create!(image_id: image.id, like_user_id: current_user.id)
-      @status = "success"
-      @image = image
-      redirect_to root_path
+    already_liked = current_user.like_users.where(:image_id => params[:id])
+    unless already_liked.present?
+      image = Image.find(params[:id])
+      like_count = image.like + 1
+      if image.update_attributes(like: like_count)
+        image.like_activities.create!(image_id: image.id, like_user_id: current_user.id)
+        @status = "success"
+        @image = image
+        flash[:success] => "You Like photo. Thank You."
+        redirect_to root_path
+      else
+        @status = "fail"
+        @image = image
+        flash[:alert] = "Please vote it again."
+        redirect_to root_path
+      end
     else
-      @status = "fail"
-      @image = image
-      flash[:alert] = "Please vote it again."
+      flash[:alert] = "You have already like these photo."
       redirect_to root_path
     end
   end
 
   def favourite
-    image = Image.find(params[:id])
-    favourite_count = image.favourite + 1
-    if image.update_attributes(favourite: favourite_count)
-      image.like_activities.create!(image_id: image.id, favourite_user_id: current_user.id)
-      @status = "success"
-      @image = image
-      redirect_to root_path
+    already_fav = current_user.fav_users.where(:image_id => params[:id])
+    unless already_fav.present?
+      image = Image.find(params[:id])
+      favourite_count = image.favourite + 1
+      if image.update_attributes(favourite: favourite_count)
+        image.like_activities.create!(image_id: image.id, favourite_user_id: current_user.id)
+        @status = "success"
+        @image = image
+        redirect_to root_path
+      else
+        @status = "success"
+        @image = image
+        flash[:alert] = "Please vote it again."
+        redirect_to root_path
+      end
     else
-      @status = "success"
-      @image = image
-      flash[:alert] = "Please vote it again."
+      flash[:alert] = "You have already favourite these photo."
       redirect_to root_path
     end
   end
