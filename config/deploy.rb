@@ -32,6 +32,11 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
+  queue %{
+    echo "-----> Loading environment"
+    #{echo_cmd %[source ~/.bashrc]}
+    }
+  invoke :'rvm:use[ruby-2.3.1]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -52,6 +57,7 @@ task :setup => :environment do
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/parity_cube.sock"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/pids/puma.pid"]
+  queue! %[touch "#{deploy_to}/#{shared_path}/tmp/pids/unicorn.pid"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
 end
 
@@ -71,9 +77,9 @@ task :deploy => :environment do
     invoke :'deploy:cleanup'
 
     to :launch do
-      queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
-      queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
-      invoke :'puma:restart'
+      # queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
+      # queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+      # invoke :'puma:restart'
     end
 
   end

@@ -36,6 +36,7 @@ gem 'pg'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'puma'
+gem 'unicorn'
 gem 'mina'
 gem 'mina-multistage', require: false
 
