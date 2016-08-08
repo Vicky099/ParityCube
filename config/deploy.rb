@@ -16,7 +16,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :stages, %w(staging production)
-set :user, 'deployer'
+set :user, 'hovancik'
 set :deploy_to, '/home/hovancik/apps/ParityCube'
 set :repository, 'git@github.com:Vicky099/ParityCube.git'
 set :branch, 'master'
@@ -50,7 +50,7 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
-  queue! %[touch "#{deploy_to}/#{shared_path}/tmp/email_analytics.sock"]
+  queue! %[touch "#{deploy_to}/#{shared_path}/tmp/parity_cube.sock"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/pids/puma.pid"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml'."]
 end
