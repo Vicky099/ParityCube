@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
         image.like_activities.create!(image_id: image.id, like_user_id: current_user.id)
         @status = "success"
         @image = image
-        flash[:success] => "You Like photo. Thank You."
+        flash[:success] = "You Like photo. Thank You."
         redirect_to root_path
       else
         @status = "fail"
