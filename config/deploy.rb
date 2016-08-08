@@ -56,6 +56,7 @@ task :setup => :environment do
 
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
+  queue! %[touch "#{deploy_to}/#{shared_path}/config/cloudinary.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/parity_cube.sock"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/pids/puma.pid"]
   queue! %[touch "#{deploy_to}/#{shared_path}/tmp/pids/unicorn.pid"]
