@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731071232) do
+ActiveRecord::Schema.define(version: 20160802073454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.string   "tag_line"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "photo"
+    t.integer  "like",       default: 0
+    t.integer  "favourite",  default: 0
+  end
+
+  create_table "like_activities", force: :cascade do |t|
+    t.integer  "image_id"
+    t.integer  "like_user_id"
+    t.integer  "favourite_user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

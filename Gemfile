@@ -35,6 +35,9 @@ gem 'devise'
 gem 'pg'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'puma'
+gem 'mina'
+gem 'mina-multistage', require: false
 
 group :development, :test do
   gem 'pry'
