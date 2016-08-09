@@ -160,5 +160,10 @@ nav ul a, .dropdown-content li>a, .dropdown-content li>span{
   cursor: pointer;
 }
 #materialbox-overlay{
-  background-color: rgba(0,0,0,.9);
+  background-color: rgba(0,0,0,.95);
+}
+
+.card-image .active{
+  max-height: 500px !important;
+  margin-top: 50px;
 }
