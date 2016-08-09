@@ -106,7 +106,7 @@ nav ul a, .dropdown-content li>a, .dropdown-content li>span{
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-}
+}/*
 .image01:hover img{
     -webkit-filter: blur(2px);
     filter: blur(2px);
@@ -115,7 +115,7 @@ nav ul a, .dropdown-content li>a, .dropdown-content li>span{
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1);
-}
+}*/
 .image01:hover .ovrly {
     opacity: 1;
 }
@@ -158,4 +158,7 @@ nav ul a, .dropdown-content li>a, .dropdown-content li>span{
 }
 .image01 .material-icons{
   cursor: pointer;
+}
+#materialbox-overlay{
+  background-color: rgba(0,0,0,.9);
 }
